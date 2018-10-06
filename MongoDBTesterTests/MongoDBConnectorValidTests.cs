@@ -21,11 +21,10 @@ namespace MongoDBTesterTests
             catch (Exception)
             {
                 dbConnectionError = true;
-
-
-                //Assert
-                Assert.AreEqual(false, dbConnectionError);
             }
+
+            //Assert
+            Assert.AreEqual(false, dbConnectionError);
         }
     }
 }
