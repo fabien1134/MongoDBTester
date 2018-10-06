@@ -100,6 +100,7 @@
             this.btnInitialiseMongoDB.TabIndex = 2;
             this.btnInitialiseMongoDB.Text = "Initialise MongoDB";
             this.btnInitialiseMongoDB.UseVisualStyleBackColor = true;
+            this.btnInitialiseMongoDB.Click += new System.EventHandler(this.btnInitialiseMongoDB_Click);
             // 
             // dgvResult
             // 

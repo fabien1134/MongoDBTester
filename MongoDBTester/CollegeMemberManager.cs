@@ -12,7 +12,30 @@ namespace MongoDBTester
     {
         public frmCollegeMemberManager() => InitializeComponent();
 
-        private void frmCollegeMemberManager_Load(object sender, EventArgs e)
+        private void frmCollegeMemberManager_Load(object sender, EventArgs e) => InitialiseDB();
+
+        private void btnDisplayCollegeMembers_Click(object sender, EventArgs e)
+        {
+            var collegeMembers = MongoDbConnector.MongoDatabase.GetCollection<CollegeMember>("CollegeMember");
+            var collegeMembersCollection = collegeMembers.AsQueryable().ToList();
+
+            var collegeMemberTypeNameGuidMapping = new Dictionary<string, string>();
+            //Ensure all stuff GUID's are replaced with 
+            MongoDbConnector.MongoDatabase.GetCollection<CollegeMemberType>("CollegeMemberType").AsQueryable().ToList().ForEach((cmt) =>
+            {
+                collegeMemberTypeNameGuidMapping.Add(cmt.Id.ToString(), cmt.Type);
+            });
+
+            foreach (CollegeMember collegeMember in collegeMembersCollection)
+            {
+                string type = collegeMemberTypeNameGuidMapping[collegeMember.Type];
+            }
+        }
+
+        private void btnInitialiseMongoDB_Click(object sender, EventArgs e) => InitializeComponent();
+
+        //Will be used to initialse a connection to the MongoDB database
+        private void InitialiseDB()
         {
             try
             {
@@ -24,24 +47,6 @@ namespace MongoDBTester
             {
                 MessageBox.Show(this, ex.Message, "Issue Initialising Database");
                 tsslStatus.Text = "Database Connection Failure";
-            }
-        }
-
-        private void btnDisplayCollegeMembers_Click(object sender, EventArgs e)
-        {
-            var collegeMembers = MongoDbConnector.MongoDatabase.GetCollection<CollegeMember>("CollegeMember");
-            var collegeMembersCollection = collegeMembers.AsQueryable().ToList();
-
-            var collegeMemberTypeNameGuidMapping = new Dictionary<string, string>();
-            //Ensure all stuff guids are replaced with 
-            MongoDbConnector.MongoDatabase.GetCollection<CollegeMemberType>("CollegeMemberType").AsQueryable().ToList().ForEach((cmt) =>
-            {
-                collegeMemberTypeNameGuidMapping.Add(cmt.Id.ToString(), cmt.Type);
-            });
-
-            foreach (CollegeMember collegeMember in collegeMembersCollection)
-            {
-                string type = collegeMemberTypeNameGuidMapping[collegeMember.Type];
             }
         }
     }
