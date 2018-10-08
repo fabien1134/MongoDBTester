@@ -44,6 +44,7 @@
             this.cmsCrudOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnClose = new System.Windows.Forms.Button();
             this.pnlFooter.SuspendLayout();
             this.ssStatusStrip.SuspendLayout();
             this.pnlBody.SuspendLayout();
@@ -53,18 +54,19 @@
             // 
             // pnlFooter
             // 
+            this.pnlFooter.Controls.Add(this.btnClose);
             this.pnlFooter.Controls.Add(this.btnInitialiseMongoDB);
             this.pnlFooter.Controls.Add(this.btnDisplayCollegeMembers);
             this.pnlFooter.Controls.Add(this.ssStatusStrip);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Location = new System.Drawing.Point(0, 350);
+            this.pnlFooter.Location = new System.Drawing.Point(0, 360);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(800, 100);
+            this.pnlFooter.Size = new System.Drawing.Size(800, 112);
             this.pnlFooter.TabIndex = 0;
             // 
             // btnInitialiseMongoDB
             // 
-            this.btnInitialiseMongoDB.Location = new System.Drawing.Point(370, 19);
+            this.btnInitialiseMongoDB.Location = new System.Drawing.Point(379, 6);
             this.btnInitialiseMongoDB.Name = "btnInitialiseMongoDB";
             this.btnInitialiseMongoDB.Size = new System.Drawing.Size(136, 46);
             this.btnInitialiseMongoDB.TabIndex = 2;
@@ -74,7 +76,7 @@
             // 
             // btnDisplayCollegeMembers
             // 
-            this.btnDisplayCollegeMembers.Location = new System.Drawing.Point(228, 19);
+            this.btnDisplayCollegeMembers.Location = new System.Drawing.Point(237, 6);
             this.btnDisplayCollegeMembers.Name = "btnDisplayCollegeMembers";
             this.btnDisplayCollegeMembers.Size = new System.Drawing.Size(136, 46);
             this.btnDisplayCollegeMembers.TabIndex = 1;
@@ -87,7 +89,7 @@
             this.ssStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tspbExecutionState,
             this.tsslStatus});
-            this.ssStatusStrip.Location = new System.Drawing.Point(0, 78);
+            this.ssStatusStrip.Location = new System.Drawing.Point(0, 90);
             this.ssStatusStrip.Name = "ssStatusStrip";
             this.ssStatusStrip.Size = new System.Drawing.Size(800, 22);
             this.ssStatusStrip.TabIndex = 0;
@@ -108,7 +110,7 @@
             this.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBody.Location = new System.Drawing.Point(0, 0);
             this.pnlBody.Name = "pnlBody";
-            this.pnlBody.Size = new System.Drawing.Size(800, 350);
+            this.pnlBody.Size = new System.Drawing.Size(800, 360);
             this.pnlBody.TabIndex = 1;
             // 
             // dgvResult
@@ -127,7 +129,7 @@
             this.dgvResult.Name = "dgvResult";
             this.dgvResult.ReadOnly = true;
             this.dgvResult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResult.Size = new System.Drawing.Size(800, 350);
+            this.dgvResult.Size = new System.Drawing.Size(800, 360);
             this.dgvResult.TabIndex = 0;
             // 
             // colMemberId
@@ -171,20 +173,32 @@
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.updateToolStripMenuItem.Text = "Update";
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(328, 58);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(95, 26);
+            this.btnClose.TabIndex = 3;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmCollegeMemberManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 472);
             this.Controls.Add(this.pnlBody);
             this.Controls.Add(this.pnlFooter);
             this.Name = "frmCollegeMemberManager";
@@ -218,6 +232,7 @@
         private System.Windows.Forms.ContextMenuStrip cmsCrudOptions;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.Button btnClose;
     }
 }
 

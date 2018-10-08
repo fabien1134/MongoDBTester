@@ -33,6 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DnsClient, Version=1.0.7.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
@@ -73,10 +74,19 @@
     <Compile Include="CollegeMemberManager.Designer.cs">
       <DependentUpon>CollegeMemberManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmCollegeMemberDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCollegeMemberDetails.Designer.cs">
+      <DependentUpon>frmCollegeMemberDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CollegeMemberManager.resx">
       <DependentUpon>CollegeMemberManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCollegeMemberDetails.resx">
+      <DependentUpon>frmCollegeMemberDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
